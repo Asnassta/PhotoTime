@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<title>PhotoTime</title>
+</head>
+<body>
+
+	<!--Sprite-->
+	<svg style="display: none;">
+		<symbol id="twit" viewBox="0 0 23 20">
+			<g><path d="M23.004 2.377a8.968 8.968 0 0 1-2.716.781 4.985 4.985 0 0 0 2.074-2.78c-.906.577-1.928 1-2.993 1.218C18.507.612 17.28.002 15.923.002c-2.613 0-4.716 2.266-4.716 5.047 0 .39.044.78.117 1.156-3.912-.22-7.402-2.219-9.723-5.281a5.28 5.28 0 0 0-.642 2.547c0 1.75.832 3.296 2.102 4.202a4.518 4.518 0 0 1-2.132-.64v.062c0 2.453 1.62 4.484 3.782 4.953-.395.11-.818.172-1.241.172-.307 0-.599-.032-.89-.079.598 2 2.335 3.453 4.408 3.5-1.62 1.36-3.65 2.156-5.854 2.156-.394 0-.76-.015-1.14-.062A12.7 12.7 0 0 0 7.237 20c8.673 0 13.417-7.687 13.417-14.358 0-.219 0-.437-.014-.656.92-.719 1.723-1.61 2.365-2.609z"/></g>
+		</symbol>
+
+		<symbol id="dr" viewBox="0 0 20 21">
+			<g><path d="M13.336 18.754a8.268 8.268 0 0 1-3.334.71c-2.07 0-3.96-.778-5.444-2.049 0 0 .117.082.196.15 1.64-3.744 6.707-5.602 6.707-5.602.013 0 .039-.014.052-.014 1.198 3.28 1.693 6.013 1.823 6.805zm-2.41-8.294c-.104.041-.22.068-.338.11 0 0-4.61 1.557-6.941 5.916A9.207 9.207 0 0 1 1.459 10.5c0-.096 0-.191.013-.287.143 0 4.362.11 8.764-1.27.248.505.482 1.01.69 1.516zM9.534 7.563c-4.102 1.134-7.67 1.093-7.892 1.093.56-2.773 2.331-5.083 4.714-6.258a54.465 54.465 0 0 1 3.178 5.165zm8.908 4.36c-.39 2.5-1.745 4.659-3.66 6.011a41.594 41.594 0 0 0-1.667-6.408c2.761-.451 5.145.341 5.327.396zM7.957 1.796c-.013 0-.026.014-.026.014.013-.014.013-.014.026-.014zm7.684 1.981c-.026.041-1.237 1.982-4.454 3.239a44.034 44.034 0 0 0-3.204-5.22 8.272 8.272 0 0 1 2.019-.26c2.162 0 4.141.848 5.639 2.241zm2.904 6.627c-.104-.013-3.008-.683-5.951-.287-.066-.15-.118-.314-.183-.464a38.417 38.417 0 0 0-.573-1.298c3.373-1.449 4.74-3.526 4.767-3.553 1.198 1.53 1.914 3.484 1.94 5.602zm1.459.096c0-5.793-4.48-10.494-10.002-10.494S0 4.707 0 10.5s4.48 10.494 10.002 10.494 10.002-4.7 10.002-10.494z"/></g>
+		</symbol>
+
+		<symbol id="flickr" viewBox="0 0 23 20">
+			<g><path d="M23.004 3.754v12.493c0 2.07-1.932 3.748-4.313 3.748H4.313C1.932 19.995 0 18.317 0 16.247V3.754C0 1.685 1.932.007 4.313.007h14.378c2.381 0 4.313 1.678 4.313 3.747zM7.28 7.242c-1.753 0-3.175 1.236-3.175 2.759s1.422 2.759 3.175 2.759c1.752 0 3.175-1.236 3.175-2.76 0-1.522-1.423-2.758-3.175-2.758zm8.447 0c-1.753 0-3.175 1.236-3.175 2.759s1.422 2.759 3.175 2.759c1.752 0 3.175-1.236 3.175-2.76 0-1.522-1.423-2.758-3.175-2.758z"/></g>
+		</symbol>
+
+		<symbol id="arrow_left" viewBox="0 0 11 16">
+			<g><path d="M11.007 1.327a.489.489 0 0 0-.19-.369L9.871.157a.713.713 0 0 0-.435-.16.713.713 0 0 0-.436.16L.18 7.629A.516.516 0 0 0-.01 8c0 .128.076.272.19.368L9 15.84c.114.096.284.16.436.16a.713.713 0 0 0 .435-.16l.946-.802a.516.516 0 0 0 .19-.369.517.517 0 0 0-.19-.369L3.378 7.998l7.44-6.302a.516.516 0 0 0 .189-.369z"/></g>
+		</symbol>
+		<symbol id="arrow_right" viewBox="0 0 11 16">
+			<g><path d="M10.997 7.998a.516.516 0 0 0-.189-.369L2.005.157a.711.711 0 0 0-.434-.16.711.711 0 0 0-.435.16L.192.958a.517.517 0 0 0-.189.37c0 .127.076.272.189.368l7.424 6.302L.192 14.3a.517.517 0 0 0-.189.37.49.49 0 0 0 .189.368l.944.802c.114.096.284.16.435.16a.711.711 0 0 0 .434-.16l8.803-7.473a.516.516 0 0 0 .19-.369z"/></g>
+		</symbol>
+	</svg>
+
+	<!--Header-->
+	<header class="header" id="home">
+		<div class="container">
+			<div class="header_inner">
+				<nav class="nav" id="nav">
+					<a href="#" class="nav_link" data-scroll="#home">Home</a>
+					<a href="#" class="nav_link" data-scroll="#photoapp">photoapp</a>
+					<div class="header_logo">
+						<img src="assets/images/intro/logo.png" alt="">
+					</div>
+					<a href="#" class="nav_link" data-scroll="#design">design</a>
+					<a href="#" class="nav_link" data-scroll="#download">download</a>
+				</nav>
+
+				<div class="header_logo_media">
+						<img src="assets/images/intro/logo.png" alt="">
+				</div>
+
+				<button class="nav_toggle" type="button" id="navToggle">
+					<span class="nav_toggle_item">Menu</span>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<!--Intro-->
+	<section class="intro">
+		<div class="container container--intro">
+			<h1 class="intro_title">your life , a photo</h1>
+			<div class="intro_subtitle">print your life in a simple photo</div>
+			<a href="#" class="btn">get started</a>
+			<div class="intro_social">
+				<a href="#" class="intro_social_item" target="blank">
+					<svg class="social_icon">
+						<use xlink:href="#twit"></use>
+					</svg>
+				</a>
+				<a href="#" class="intro_social_item" target="blank">
+					<svg class="social_icon">
+						<use xlink:href="#flickr"></use>
+					</svg>
+				</a>
+				<a href="#" class="intro_social_item" target="blank">
+					<svg class="social_icon">
+						<use xlink:href="#dr"></use>
+					</svg>
+				</a>
+			</div><!--/intro_social-->
+		</div>
+	</section><!--/intro-->
+
+	<!--PhotoApp-->
+	<section class="photoapp" id="photoapp">
+		<div class="container container--photoapp">
+			<div class="photoapp_inner">
+				<h2 class="section_title photoapp_title">Rappresent your life with a simple photo</h2>
+				<div class="section_text">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <span>enim ad minim</span> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+				<a href="#" class="btn btn--long btn--border">get started</a>
+			</div>
+			<div class="photoapp_img">
+				<img src="assets/images/section/hand.png" alt="">
+			</div>
+		</div>
+	</section>
+
+	<!--Design-->
+	<section class="design" id="design">
+		<div class="container">
+			<div class="design_inner">
+				<div class="design_item design_item--phone">
+					<div class="design_image">
+						<img src="assets/images/section/phone.png" alt="">
+					</div>
+				</div>
+				<div class="design_item design_item--right">
+					<div class="slider">
+						<div class="slider_inner">
+							<div class="slider_item">
+								<h2 class="section_title design_title">Design</h2>
+								<div class="section_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+								<a href="#" class="btn btn--br">learn more</a>
+								<div class="slider_number">01/05</div>
+							</div>
+						</div><!--/slider_inner-->
+						<div class="slider_inner">
+							<div class="slider_item">
+								<h2 class="section_title design_title">our community</h2>
+								<div class="section_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+								<a href="#" class="btn btn--br">learn more</a>
+								<div class="slider_number">02/05</div>
+							</div>
+						</div><!--/slider_inner-->
+					</div><!--/slider-->
+					<div class="slider_arrow">
+						<div class="arrow_left">
+							<svg class="arrow">
+								<use xlink:href="#arrow_left"></use>
+							</svg>
+						</div>
+						<div class="arrow_right">
+							<svg class="arrow">
+								<use xlink:href="#arrow_right"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!--/design-->
+
+	<!--Community-->
+	<section class="community">
+		<div class="container">
+			<div class="community_inner">
+				<div class="community_item community_item--text">
+					<div class="logo community_logo">
+						<img src="assets/images/section/logo_green.png" alt="">
+					</div>
+					<h2 class="section_title community_title">our community</h2>
+					<div class="community_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</div>
+				</div><!--/community_item-->
+				<div class="community_item community_item--slider">
+					<div class="slider_community">
+						<div class="slider_community_inner">
+							<div class="slider_community_block">
+								<div class="slider_community_item">
+									<img src="assets/images/slider_community/1.jpg" alt="">
+								</div>
+								<div class="slider_community_item">
+									<img src="assets/images/slider_community/2.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="slider_community_inner">
+							<div class="slider_community_block">
+								<div class="slider_community_item">
+									<img src="assets/images/slider_community/3.jpg" alt="">
+								</div>
+								<div class="slider_community_item">
+									<img src="assets/images/slider_community/4.jpg" alt="">
+								</div>
+							</div>
+						</div>
+					</div><!--/slider_community-->
+					<div class="slider_arrow slider_arrow--community_slider">
+						<div class="arrow_left arrow_left--community_slider">
+							<svg class="arrow">
+								<use xlink:href="#arrow_left"></use>
+							</svg>
+						</div>
+						<div class="arrow_right arrow_right--community_slider">
+							<svg class="arrow">
+								<use xlink:href="#arrow_right"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div><!--/community_inner-->
+		</div>
+	</section><!--/community-->
+
+	<!--Subscribe-->
+	<section class="subscribe">
+		<div class="container">
+			<div class="subscribe_inner">
+				<h2 class="section_title subscribe_title">subscribe to us community</h2>
+				<form action="#" name="subscribe_form">
+					<div class="subscribe_form_inner">
+						<input type="text" placeholder="your email">
+						<button class="btn--subscribe" type="submit"><img src="assets/images/section/check.png" alt=""></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section><!--/subscribe-->
+
+	<!--Download-->
+	<section class="download" id="download">
+		<div class="container">
+			<div class="download_inner">
+				<h2 class="section_title download_title">Download it</h2>
+				<div class="download_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				<div class="download_button_block">
+					<a href="#" class="btn_download">
+						<span>apple store</span>
+						<div class="btn_download-icon">
+							<img src="assets/images/section/apple.png" alt="">
+						</div>
+					</a>
+					<a href="#" class="btn_download">
+						<span>play store</span>
+						<div class="btn_download-icon">
+							<img src="assets/images/section/android.png" alt="">
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--Footer-->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer_inner">
+				<div class="footer_text">
+					<div class="footer_menu">
+						<a href="#" class="menu_link">credits</a>
+						<a href="#" class="menu_link">privacy</a>
+						<a href="#" class="menu_link">our teams</a>
+					</div>
+					<div class="copyright">Copyright by phototime - all right reserved</div>
+				</div>
+				<div class="footer_icon">
+					<img src="assets/images/section/logo_green.png" alt="">
+				</div>
+			</div>
+		</div>
+	</footer><!--/footer-->
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="assets/js/app.js"></script>
+
+</body>
+</html>
